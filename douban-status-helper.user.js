@@ -3,9 +3,9 @@
 // @namespace     http://yochia.cn
 // @author        Yochia
 // @version       1.1
-// @updateURL     *://userscripts.yochia.cn/douban-status-helper.user.js
+// @updateURL     https://userscripts.yochia.cn/douban-status-helper.user.js
 // @description   为豆瓣用户个人页面的广播页面添加分类筛选功能。
-// @include       https://www.douban.com/people/*/statuses*
+// @include       *://www.douban.com/people/*/statuses*
 // @require       ./utils.js
 // @icon          https://userscripts.yochia.cn/favicon.ico
 // ==/UserScript==
