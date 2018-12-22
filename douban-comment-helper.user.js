@@ -9,7 +9,7 @@
 // @include       *://www.douban.com/group/topic/*
 // @include       *://www.douban.com/people/*/status/*
 // @require       ./utils.js
-// @icon          ./favicon.ico
+// @icon          https://userscripts.yochia.cn/favicon.ico
 // ==/UserScript==
 
 

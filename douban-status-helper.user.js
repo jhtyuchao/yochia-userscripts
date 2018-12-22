@@ -7,7 +7,7 @@
 // @description   为豆瓣用户个人页面的广播页面添加分类筛选功能。
 // @include       https://www.douban.com/people/*/statuses*
 // @require       ./utils.js
-// @icon          ./favicon.ico
+// @icon          https://userscripts.yochia.cn/favicon.ico
 // ==/UserScript==
 
 

@@ -9,7 +9,7 @@
 // @require       http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js
 // @require       ./utils.js
 // @require       ./network.js
-// @icon          ./favicon.ico
+// @icon          https://userscripts.yochia.cn/favicon.ico
 // ==/UserScript==
 
 
