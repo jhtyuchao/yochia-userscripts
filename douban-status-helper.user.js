@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Koriri豆瓣用户广播助手
-// @namespace     http://yochia.cn
+// @namespace     https://yochia.cn
 // @author        Yochia
-// @version       1.1
+// @version       1.1.1
 // @updateURL     https://userscripts.yochia.cn/douban-status-helper.user.js
 // @description   为豆瓣用户个人页面的广播页面添加分类筛选功能。
 // @include       *://www.douban.com/people/*/statuses*
@@ -11,7 +11,7 @@
 // ==/UserScript==
 
 
-(function() {
+(function () {
   'use strict';
 
   var filterNames = {
@@ -27,7 +27,7 @@
     "doulist": "豆列"
   };
 
-  (function() {
+  (function () {
     importStyles();
     optimizeElement();
     initStatusHelper();
@@ -101,8 +101,8 @@
         a.setAttribute("dsh-filter-type", key.toString());
         a.onclick = function () {
           history.pushState({}, "",
-            "?dsh-filter="+ this.getAttribute("dsh-filter-type") +
-            (getUrlParam("p") ? "&p=" + getUrlParam("p"):"")
+            "?dsh-filter=" + this.getAttribute("dsh-filter-type") +
+            (getUrlParam("p") ? "&p=" + getUrlParam("p") : "")
           );
           initStatusHelper();
           refreshListStyles();

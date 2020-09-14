@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Koriri豆瓣评论区助手
-// @namespace     http://yochia.cn
+// @namespace     https://yochia.cn
 // @author        Yochia
-// @version       1.1
+// @version       1.1.1
 // @updateURL     https://userscripts.yochia.cn/douban-comment-helper.user.js
 // @description   豆瓣的评论区增强功能为日记、小组、广播的回复添加：· 楼层号；· 高亮、只显示当前作者按钮。
 // @include       *://www.douban.com/note/*
@@ -13,17 +13,17 @@
 // ==/UserScript==
 
 
-(function() {
+(function () {
   'use strict';
 
-  (function() {
+  (function () {
     importStyles();
     optimizeElement();
 
     var commentItems = $(".dch-comment-item");
-    var commentOffset = getUrlParam("start")-0;
+    var commentOffset = getUrlParam("start") - 0;
 
-    for (var i = 0; i < commentItems.length; i ++) {
+    for (var i = 0; i < commentItems.length; i++) {
       optimizeCommnetItem(commentItems[i]);
       showFloorNumber(commentItems[i], i, commentOffset);
       showHighlightButton(commentItems[i]);
@@ -48,7 +48,7 @@
     $(comments).find(".op-lnks").addClass("dch-comment-tools");
     $(comments).find(".operation_div").addClass("dch-comment-tools");
     $(comments).find(".admin-lnks").addClass("dch-comment-tools");
-    $(comments).find(".admin-lnks").css({"direction": "rtl", "float": "none"});
+    $(comments).find(".admin-lnks").css({ "direction": "rtl", "float": "none" });
   }
 
   function importStyles() {
@@ -59,7 +59,7 @@
       "float: right;" +
       "margin: 0 5px" +
       "}" +
-      ".dch-highlight .dch-comment-content {"+
+      ".dch-highlight .dch-comment-content {" +
       "background-color: #e8f8ff" +
       "}" +
       "#comments[dch-focus='enabled'] .dch-comment-item {" +
@@ -77,7 +77,7 @@
 
   function showFloorNumber(item, index, offset) {
     $(item).find(".dch-author-background")
-      .append("<span class='dch-floor-index'>"+(index+1+offset)+"楼</span>");
+      .append("<span class='dch-floor-index'>" + (index + 1 + offset) + "楼</span>");
   }
 
   function showHighlightButton(item) {
@@ -99,11 +99,11 @@
   function highlightAuthor(userPageUrl) {
     resetHighlight();
 
-    var target = $(".dch-comment-item[author-url='"+userPageUrl+"']");
+    var target = $(".dch-comment-item[author-url='" + userPageUrl + "']");
     $(target).toggleClass("dch-highlight");
 
     var highlightBtn = $(target).find(".dch-highlight-button");
-    for (var i = 0; i < highlightBtn.length; i ++) {
+    for (var i = 0; i < highlightBtn.length; i++) {
       $(highlightBtn[i]).text("取消高亮");
     }
   }
@@ -133,11 +133,11 @@
     resetFocus();
     $("#comments").attr("dch-focus", "enabled");
 
-    var target = $(".dch-comment-item[author-url='"+userPageUrl+"']");
+    var target = $(".dch-comment-item[author-url='" + userPageUrl + "']");
     $(target).toggleClass("dch-focus");
 
     var focusBtn = $(target).find(".dch-focus-button");
-    for (var i = 0; i < focusBtn.length; i ++) {
+    for (var i = 0; i < focusBtn.length; i++) {
       $(focusBtn[i]).text("取消只看该用户");
     }
   }

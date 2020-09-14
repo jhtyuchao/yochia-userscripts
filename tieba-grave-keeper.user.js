@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name          Yochia吧务挖坟检测
-// @namespace     http://yochia.cn
+// @namespace     https://yochia.cn
 // @author        Yochia
-// @version       1.5
+// @version       1.5.1
 // @updateURL     https://userscripts.yochia.cn/tieba-grave-keeper.user.js
 // @description   侧边栏【吧务管理】中将添加一个名为【检测挖坟】的按钮，点击后会对当前页的所有贴子粗略检查，标红疑似挖坟的项目。索尼克吧吧务专用。
 // @include       *://tieba.baidu.com/f*
@@ -13,7 +13,7 @@
 // ==/UserScript==
 
 
-(function() {
+(function () {
   'use strict';
 
   var styles = document.createElement("style");
@@ -63,7 +63,7 @@
       $("span.frs-author-name-wrap").width("auto");
     }
 
-    for (var i = 0; i<threads.length; i ++) {
+    for (var i = 0; i < threads.length; i++) {
       var dataField = JSON.parse($(threads[i]).attr("data-field"));
 
       if (showRealName) {
@@ -89,7 +89,7 @@
   }
 
   function showRealAuthorName(nameEles) {
-    for (var i = 0; i < nameEles.length; i ++) {
+    for (var i = 0; i < nameEles.length; i++) {
       var realName = JSON.parse($(nameEles[i]).attr("data-field")).un;
       $(nameEles[i]).html(realName);
     }
@@ -98,13 +98,13 @@
   function formatCreateDate(thread, time) {
     var dateEle = $(thread).find(".is_show_create_time");
     if (dateEle.length === 0) return;
-    $(dateEle).html(formateStandardDateString(new Date(time*1000)));
+    $(dateEle).html(formateStandardDateString(new Date(time * 1000)));
   }
 
   function formatReplyDate(thread, time) {
     var dateEle = $(thread).find(".threadlist_reply_date");
     if ($(dateEle).length === 0) return;
-    $(dateEle).html(formateStandardDateString(new Date(time*1000)));
+    $(dateEle).html(formateStandardDateString(new Date(time * 1000)));
   }
 
   function compareDate(thread, createTime, lastTime, minInterval) {
@@ -116,7 +116,7 @@
     bet = parseInt(255 - bet / 259200000 * 255 + "") - 20;
     bet = bet < 100 ? 100 : bet;
     $(thread).addClass("tgk-target");
-    thread.style.backgroundColor="rgb(255,"+bet+","+bet+")";
+    thread.style.backgroundColor = "rgb(255," + bet + "," + bet + ")";
   }
 
   var manageArea = document.createElement("div");
